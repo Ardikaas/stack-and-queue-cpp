@@ -77,8 +77,81 @@ void enqueue (int total){
   cout << "\n";
 }
 
+void display(){
+  if (isEmpty()){
+    cout << "tidak ada data";
+  }else{
+    cout << "data antrian" << endl;
+    for (int i =0; i < max; i++){
+      if (queue.data[i] != 0){
+        cout << i+1 << ". " << queue.data[i] << endl;
+      }else{
+        cout << i+1 << ". kosong" << endl;
+      }
+    }
+  }
+}
+
+void dequeue(){
+  if (isEmpty()){
+    cout << "antrian kosong";
+  }else{
+    for (int i = 0; i < queue.tail; i++){
+      queue.data[i] = queue.data[i+1];
+    }
+  }
+  cout << "\n";
+}
+
+void maximum(){
+  int maxi;
+  maxi = 0;
+  for (int i = 0; i < queue.tail;i++){
+    if (queue.data[i] > maxi){
+      maxi = queue.data[i];
+    }
+  }
+  cout << "nilai maksimum : " << maxi << endl;
+}
+
+void minimum(){
+  int mini;
+  queue.data[queue.head] = mini;
+  for (int i = 0;i < max ;i++){
+    if (queue.data[i] != 0){
+      if (mini > queue.data[i]){
+        mini = queue.data[i];
+      }
+    }
+  }
+  cout << "nilai minimum : " << mini << endl;
+}
+
+void mean(int total){
+  int subtotal;
+  float rata;
+  int sum = 0;
+  for (int i = 0;i < max; i++){
+    sum = sum + queue.data[i];
+  }
+  rata = sum/total;
+  cout << "nilai mean : " << rata << endl;
+}
+
 int main(int argc, char const *argv[])
 {
-  
+  int total;
+  cout << "masukkan banyaknya antrian : ";
+  cin >> total;
+  enqueue(total);
+  display();
+  dequeue();
+  display();
+  searchQue();
+  changeQue();
+  display();
+  mean(total);
+  maximum();
+  minimum();
   return 0;
 }
