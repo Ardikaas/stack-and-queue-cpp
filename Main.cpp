@@ -40,7 +40,42 @@ void changeQue(){
   }
 }
 
+bool isEmpty(){
+  if (queue.tail == 0){
+    return 1;
+  }else{
+    return 0;
+  }
+}
 
+bool isFull(){
+  if (queue.tail == max){
+    return 1;
+  }else{
+    return 0;
+  }
+}
+
+void enqueue (int total){
+  int index;
+  if (total <= 10){
+    for (int i = 0;i < total;i++){
+      cout << "masukkan nilai : ";
+      cin >> index;
+      if (isEmpty()){
+        queue.data[queue.head] = index;
+        queue.head++;
+        queue.tail++;
+      }else{
+        queue.data[queue.tail] = index;
+        queue.tail++;
+      }
+    }
+  }else if (total > 10){
+    cout << "jumlah data melebihi kapasitas";
+  }
+  cout << "\n";
+}
 
 int main(int argc, char const *argv[])
 {
