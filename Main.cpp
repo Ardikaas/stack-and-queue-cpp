@@ -14,7 +14,7 @@ void searchQue(){
   cin >> input;
   for (int i = 0;i < max;i++){
     if (queue.data[i] == input){
-      cout << "data" << input << "berada pada antrian ke " << i+1 << endl;
+      cout << " data " << input << "berada pada antrian ke " << i+1 << endl;
     }
   }
 }
@@ -141,17 +141,44 @@ void mean(int total){
 int main(int argc, char const *argv[])
 {
   int total;
+  int input;
   cout << "masukkan banyaknya antrian : ";
   cin >> total;
-  enqueue(total);
-  display();
-  dequeue();
-  display();
-  searchQue();
-  changeQue();
-  display();
-  mean(total);
-  maximum();
-  minimum();
+  system("cls");
+  cout << "pilihan : " << endl;
+  cout << "1. enqueue" << endl;
+  cout << "2. dequeue" << endl;
+  cout << "3. display" << endl;
+  cout << "4. search queue" << endl;
+  cout << "5. change queue" << endl;
+  cout << "6. maksimum" << endl;
+  cout << "7. minimum" << endl;
+  cout << "8. mean" << endl;
+  cout << "9. keluar" << endl;
+  cout << "============" << endl;
+  cout << "masukkan pilihan : ";
+  cin >> input;
+  int i = 0;
+  while (i<1){
+    if (input == 1){
+    enqueue(total);  
+    }else if (input == 2){
+    dequeue();
+    }else if (input == 3){
+    display();
+    }else if (input == 4){
+    searchQue();
+    }else if (input == 5){
+    changeQue();
+    }else if (input == 6){
+    maximum();
+    }else if (input == 7){
+    minimum();
+    }else if (input == 8){
+    mean(total);
+    }else if (input == 9){
+    i++;
+    }
+  }
   return 0;
 }
