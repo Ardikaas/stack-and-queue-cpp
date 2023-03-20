@@ -127,8 +127,15 @@ void minimum(){
   cout << "nilai minimum : " << mini << endl;
 }
 
+void sum(){
+  int index = 0;
+  for(int i = 0;i < max;i++){
+    index = index + queue.data[i];
+  }
+  cout << "nilai total : " << index << endl;
+}
+
 void mean(int total){
-  int subtotal;
   float rata;
   int sum = 0;
   for (int i = 0;i < max; i++){
@@ -154,7 +161,8 @@ int main(int argc, char const *argv[])
   cout << "6. maksimum" << endl;
   cout << "7. minimum" << endl;
   cout << "8. mean" << endl;
-  cout << "9. keluar" << endl;
+  cout << "9. jumlah" << endl;
+  cout << "10. keluar" << endl;
   cout << "============" << endl;
   cout << "masukkan pilihan : ";
   cin >> input;
@@ -177,6 +185,8 @@ int main(int argc, char const *argv[])
     }else if (input == 8){
     mean(total);
     }else if (input == 9){
+    sum();
+    }else if (input == 10){
     i++;
     }
   }
